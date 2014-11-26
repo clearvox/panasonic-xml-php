@@ -1,0 +1,17 @@
+{
+    "name":              "clearvox/panasonic-xml-php",
+    "description":       "PHP Library for preparing the XML documents for Panasonic phones",
+    "minimum-stability": "dev",
+    "license":           "MIT",
+    "authors":           [
+        {
+            "name":  "Leon Rowland",
+            "email": "leon@rowland.nl"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Clearvox\\Panasonic\\XML": "src/"
+        }
+    }
+}
