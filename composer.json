@@ -1,5 +1,5 @@
 {
-    "name":              "clearvox/panasonic-xml-php",
+    "name":              "clearvox/panasonic-xml",
     "description":       "PHP Library for preparing the XML documents for Panasonic phones",
     "minimum-stability": "dev",
     "license":           "MIT",
