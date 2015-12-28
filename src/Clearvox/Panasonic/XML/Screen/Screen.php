@@ -11,13 +11,27 @@ class Screen implements XMLObjectInterface
     protected $name;
 
     /**
+     * @var string
+     */
+    protected $version;
+
+
+    /**
      * @var XMLObjectInterface[]
      */
     protected $elements = array();
 
-    public function __construct($name = null)
+    /**
+     * Default constructor
+     * optional $name for name of the screen and optional version number (default=2.0)
+     *
+     * @param $name|null string
+     * @param $version|'2.0' string
+    */
+    public function __construct($name = null, $version = null)
     {
         $this->name = $name;
+        $this->version = $version;
     }
 
     public function addElement(ScreenXMLObjectInterface $element)
@@ -42,7 +56,11 @@ class Screen implements XMLObjectInterface
             $screenElement->setAttribute('name', $this->name);
         }
 
-        $screenElement->setAttribute('version', '2.0');
+        if (! is_null($this->version)) {
+            $screenElement->setAttribute('version', $this->version);
+        } else {
+            $screenElement->setAttribute('version', '2.0');
+        }
 
         foreach($this->elements as $element) {
             $screenElement->appendChild($tempDOM->importNode($element->generate(), true));
