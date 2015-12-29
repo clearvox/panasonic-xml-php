@@ -1,5 +1,5 @@
 <?php
-namespace Clearvox\Panasonic\XML\Screen\Menu;
+namespace Clearvox\Panasonic\XML\Screen\Events;
 
 /**
  * Make a new onClicked event. Used inside the MenuItem class.

@@ -1,5 +1,6 @@
 <?php
 namespace Clearvox\Panasonic\XML\Screen\Menu;
+use Clearvox\Panasonic\XML\Screen\Events;
 /**
  * Make a new MenuItem
  *
@@ -28,13 +29,13 @@ class MenuItem
      * @param onClick $SendRequest
      * @return $this
      */
-    public function addOnClickSendRequest(onClickedSendRequest $sendRequest)
+    public function addOnClickSendRequest(Events\onClickedSendRequest $sendRequest)
     {
         $this->sendRequest[] = $sendRequest;
         return $this;
     }
 
-    public function addOnClickRebootRequest(onClickedRebootRequest $sendRequest)
+    public function addOnClickRebootRequest(Events\onClickedRebootRequest $sendRequest)
     {
         $this->sendRequest[] = $sendRequest;
         return $this;
