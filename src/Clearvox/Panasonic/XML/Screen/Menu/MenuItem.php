@@ -14,15 +14,18 @@ class MenuItem
 {
     protected $name;
 
+    protected $selected;
+
     /**
      * @var sendRequest
      */
     protected $sendRequest = array();
 
 
-    public function __construct($name)
+    public function __construct($name, $selected = false)
     {
         $this->name = $name;
+        $this->selected = $selected;
     }
 
     /**
@@ -52,6 +55,14 @@ class MenuItem
     public function getName()
     {
         return $this->name;
+    }
+
+    public function getSelected()
+    {
+        if ($this->selected) {
+            return 'true';
+        }
+        return 'false';
     }
 
     public function generate()

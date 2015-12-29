@@ -64,9 +64,7 @@ class Menu implements ScreenXMLObjectInterface
             $menuItemElement->setAttribute('id', $position);
             $menuItemElement->setAttribute('name', $menuItem->getName());
             $menuItemElement->setAttribute('text', $menuItem->getName());
-            if ($position === 1 ) {
-                $menuItemElement->setAttribute('selected', 'true');
-            }
+            $menuItemElement->setAttribute('selected', $menuItem->getSelected());
             $menuItems->appendChild($tempDOM->importNode($menuItemElement, true));
         }
         // Add the whole MenuItems object to Menu
