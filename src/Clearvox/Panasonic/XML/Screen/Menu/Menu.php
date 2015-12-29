@@ -53,6 +53,10 @@ class Menu implements ScreenXMLObjectInterface
 
         $menu->setAttribute('area', 'Phone'); // Mandatory for Menu option
 
+        // Make MenuItems object
+        $menuItems = $tempDOM->createElement('MenuItems');
+
+        //Add all MenuItem objects into the MenuItems object
         foreach ($this->menuItem as $id => $menuItem) {
             // Requires an ID for order
             $position = $id + 1;
@@ -60,10 +64,13 @@ class Menu implements ScreenXMLObjectInterface
             $menuItemElement->setAttribute('id', $position);
             $menuItemElement->setAttribute('name', $menuItem->getName());
             $menuItemElement->setAttribute('text', $menuItem->getName());
-            $menu->appendChild($tempDOM->importNode($menuItemElement, true));
+            $menuItems->appendChild($tempDOM->importNode($menuItemElement, true));
         }
+        // Add the whole MenuItems object to Menu
+        $menu->appendChild($tempDOM->importNode($menuItems, false));
 
         unset($tempDOM);
+        // Return the Menu
         return $menu;
     }
 }
