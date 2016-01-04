@@ -10,19 +10,6 @@ use Clearvox\Panasonic\XML\Screen\ScreenXMLObjectInterface;
  * @author Bart van den Akker <bart@clearvox.nl>
  */
 
-/*
- *            <Label name="labelTitle" area="Phone" line="2"
- text="Screen title" textAlignment="Left"  />
-            <!-- Label's minimal declaration -->
-            <Label name="labelName" line="3" text="Name"/>
-            <!-- Label's other example -->
-            <Label name="lbl123" area="Phone" line=" "
-text=" " textAlignment="Left"
-showDateTime="true" refreshDateTime="18000"/>
-
- */
-
-
 class Label implements ScreenXMLObjectInterface
 {
     /** @var string name */

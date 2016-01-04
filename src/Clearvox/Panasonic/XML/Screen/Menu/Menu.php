@@ -32,7 +32,7 @@ class Menu implements ScreenXMLObjectInterface
         $this->name = $name;
     }
 
-    public function addMenuItem(menuItem $menuItem)
+    public function addMenuItem(MenuItem $menuItem)
     {
         $this->menuItem[] = $menuItem;
     }
@@ -64,7 +64,7 @@ class Menu implements ScreenXMLObjectInterface
             $menuItemElement->setAttribute('id', $position);
             $menuItemElement->setAttribute('name', $menuItem->getName());
             $menuItemElement->setAttribute('text', $menuItem->getName());
-            $menuItemElement->setAttribute('selected', $menuItem->getSelected());
+            $menuItemElement->setAttribute('selected', ($menuItem->getSelected() ? 'true' : 'false') );
             $menuItems->appendChild($tempDOM->importNode($menuItemElement, true));
         }
         // Add the whole MenuItems object to Menu

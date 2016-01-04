@@ -59,10 +59,7 @@ class MenuItem
 
     public function getSelected()
     {
-        if ($this->selected) {
-            return 'true';
-        }
-        return 'false';
+        return $this->selected;
     }
 
     public function generate()
