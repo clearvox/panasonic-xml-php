@@ -48,6 +48,18 @@ class MenuItem
     }
 
     /**
+     * Adds an onClick event to the Item to actually do something
+     *
+     * @param onClick $SendRequest
+     * @return $this
+     */
+    public function addOnClickDialRequest(Events\onClickedDialRequest $sendRequest)
+    {
+        $this->sendRequest[] = $sendRequest;
+        return $this;
+    }
+
+    /**
      * Returns the request.
      *
      * @return sendRequest[]
