@@ -2,17 +2,17 @@
 namespace Clearvox\Panasonic\XML\Screen\Events;
 
 /**
- * Make a new onClicked event. Used inside the MenuItem class.
+ * Make a new onClicked event.
  *
  * @category Clearvox
  * @package Panasonic
- * @subpackage XML\Screen\Menu
+ * @subpackage XML\Screen\Events
  * @author Bart van den Akker <bart@clearvox.nl>
  */
 class onClickedSendRequest
 {
     /**
-     * @var string
+     * @var string url of the location to go to
      */
     protected $url;
 

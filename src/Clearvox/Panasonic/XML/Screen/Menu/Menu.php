@@ -13,7 +13,7 @@ use Clearvox\Panasonic\XML\Screen\ScreenXMLObjectInterface;
 class Menu implements ScreenXMLObjectInterface
 {
     /**
-     * @var string
+     * @var string name of the menu
      */
     protected $name;
 

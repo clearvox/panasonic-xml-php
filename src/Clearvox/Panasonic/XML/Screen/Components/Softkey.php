@@ -3,7 +3,7 @@ namespace Clearvox\Panasonic\XML\Screen\Components;
 use Clearvox\Panasonic\XML\Screen\Events;
 
 /**
- * Make a new MenuItem
+ * Make a new Softkey
  *
  * @category Clearvox
  * @package Panasonic
@@ -13,10 +13,10 @@ use Clearvox\Panasonic\XML\Screen\Events;
 
 class Softkey
 {
-    /** @var string name */
+    /** @var string name of the softkey */
     protected $name;
 
-    /** @var int id */
+    /** @var int id location of the softkey */
     protected $id;
     /**
      * @var sendRequest
@@ -25,7 +25,7 @@ class Softkey
 
 
     /**
-     * Default contructor for a Softkey. $id determines the location (1, 2 or 3)
+     * Default contructor for a Softkey. $id determines the location (1, 2 or 3 - left, center, right)
      *
      * @param $name string Name of the Softkey (used as Text too)
      * @param $id|null int Location of the softkey
@@ -34,11 +34,7 @@ class Softkey
     public function __construct($name, $id = null)
     {
         $this->name = $name;
-        if ($id < 4 ) {
-            $this->id = $id;
-        }
-
-
+        $this->id = $id;
     }
 
     /**
@@ -81,11 +77,10 @@ class Softkey
     }
 
     /**
-     * Generate Softkey element
+     * Generate the DOMElement for this implementing class.
      *
-     * @return Object
+     * @return \DOMElement
      */
-
     public function generate()
     {
         // Temporary DomDocument
@@ -104,7 +99,6 @@ class Softkey
         }
         // Clean up temporary
         unset($tempDOM);
-        // Return the whole Softkey element
         return $softKeyElement;
     }
 }

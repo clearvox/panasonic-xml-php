@@ -4,11 +4,11 @@ namespace Clearvox\Panasonic\XML\Screen\Timer;
 use Clearvox\Panasonic\XML\Screen\Events;
 use Clearvox\Panasonic\XML\Screen\Events\onExpiredRequest;
 /**
- * Make a new Menu.
+ * Make a new Timer and redirect after completion.
  *
  * @category Clearvox
  * @package Panasonic
- * @subpackage XML\Screen\Components
+ * @subpackage XML\Screen\Timer
  * @author Bart van den Akker <bart@clearvox.nl>
  */
 use Clearvox\Panasonic\XML\Screen\ScreenXMLObjectInterface;
@@ -76,9 +76,7 @@ class Timer implements ScreenXMLObjectInterface
             $timer->appendChild($tempDOM->importNode($generatedEvent, true));
         }
 
-
         unset($tempDOM);
-        // Return the Menu
         return $timer;
     }
 }

@@ -2,17 +2,17 @@
 namespace Clearvox\Panasonic\XML\Screen\Events;
 
 /**
- * Make a new onClicked event. Used inside the MenuItem class.
+ * Make a new onExpired event.
  *
  * @category Clearvox
  * @package Panasonic
- * @subpackage XML\Screen\Menu
+ * @subpackage XML\Screen\Events
  * @author Bart van den Akker <bart@clearvox.nl>
  */
 class onExpiredRequest
 {
     /**
-     * @var string
+     * @var string url to go to.
      */
     protected $url;
 

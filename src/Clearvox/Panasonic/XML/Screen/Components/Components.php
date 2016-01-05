@@ -55,9 +55,7 @@ class Components implements ScreenXMLObjectInterface
             $components->appendChild($tempDOM->importNode($softkeyItemElement, true));
         }
 
-
         unset($tempDOM);
-        // Return the Menu
         return $components;
     }
 }

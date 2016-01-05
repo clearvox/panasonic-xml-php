@@ -12,13 +12,13 @@ use Clearvox\Panasonic\XML\Screen\ScreenXMLObjectInterface;
 
 class Label implements ScreenXMLObjectInterface
 {
-    /** @var string name */
+    /** @var string name of the Label */
     protected $name;
 
-    /** @var int line */
+    /** @var int line of the label on the phone */
     protected $line;
     /**
-     * @var textAlignment
+     * @var textAlignment alignment of the label on the phone
      */
     protected $textAlignment;
 
@@ -28,7 +28,7 @@ class Label implements ScreenXMLObjectInterface
      *
      * @param $name string Name of the label (used as Text too)
      * @param $line|null int Linenr of the label
-     * @param $textAlignment|null int Location of the label
+     * @param $textAlignment|null string Location of the label (left, right or center)
      *
      */
     public function __construct($name, $line = null, $textAlignment = null)
@@ -38,6 +38,11 @@ class Label implements ScreenXMLObjectInterface
         $this->textAlignment = $textAlignment;
     }
 
+    /**
+     * Generate the DOMElement for this implementing class.
+     *
+     * @return \DOMElement
+     */
     public function generate()
     {
         // Temporary DomDocument
@@ -53,7 +58,6 @@ class Label implements ScreenXMLObjectInterface
 
         // Clean up temporary
         unset($tempDOM);
-        // Return the whole Softkey element
         return $labelElement;
     }
 }
