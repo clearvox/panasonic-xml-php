@@ -56,6 +56,7 @@ class Screen implements XMLObjectInterface
             $screenElement->setAttribute('name', $this->name);
         }
 
+        $screenElement->setAttribute('version', $this->version);
 
         foreach($this->elements as $element) {
             $screenElement->appendChild($tempDOM->importNode($element->generate(), true));
