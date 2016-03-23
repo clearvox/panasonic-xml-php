@@ -18,6 +18,12 @@ class Components implements ScreenXMLObjectInterface
     protected $softkeyItem = array();
 
     /**
+     * @var $textBoxItem[]
+     */
+    protected $textBoxItem = array();
+
+
+    /**
      * Add a softKey
      *
      * @param Softkey $softKeyItem
@@ -26,6 +32,17 @@ class Components implements ScreenXMLObjectInterface
     public function addSoftKey(Softkey $softKeyItem)
     {
         $this->softkeyItem[] = $softKeyItem;
+    }
+
+    /**
+     * Add a textInput
+     *
+     * @param Softkey $
+     *
+     */
+    public function addTextBoxItem(TextBox $textBoxItem)
+    {
+        $this->textBoxItem[] = $textBoxItem;
     }
 
     /**
@@ -54,6 +71,32 @@ class Components implements ScreenXMLObjectInterface
             // Add softkeys to the Components
             $components->appendChild($tempDOM->importNode($softkeyItemElement, true));
         }
+
+
+        // Start adding Textbox
+        foreach ($this->textBoxItem as $id => $textBoxItem) {
+            // Requires an ID for order
+            $position = $id + 1;
+            $textBoxItemElement = $textBoxItem->generate();
+            // ID defines the location of a softkey
+            if (!is_null($textBoxItem->getLine())) {
+                $textBoxItemElement->setAttribute('line', $textBoxItem->getLine());
+            } else {
+                $textBoxItemElement->setAttribute('line', $position);
+            }
+            $textBoxItemElement->setAttribute('name', $textBoxItem->getName());
+            $textBoxItemElement->setAttribute('text', $textBoxItem->getText());
+
+            if (true ===  $textBoxItem->getPassword()) {
+                $textBoxItemElement->setAttribute('password', 'true');
+            } else {
+                $textBoxItemElement->setAttribute('password', 'false');
+            }
+
+            // Add softkeys to the Components
+            $components->appendChild($tempDOM->importNode($textBoxItemElement, true));
+        }
+
 
         unset($tempDOM);
         return $components;
