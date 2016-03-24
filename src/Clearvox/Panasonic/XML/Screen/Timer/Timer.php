@@ -1,6 +1,7 @@
 <?php
 namespace Clearvox\Panasonic\XML\Screen\Timer;
 
+use Clearvox\Panasonic\XML\Execute\Reboot;
 use Clearvox\Panasonic\XML\Screen\Events;
 use Clearvox\Panasonic\XML\Screen\Events\onExpiredRequest;
 /**
@@ -52,6 +53,19 @@ class Timer implements ScreenXMLObjectInterface
     public function addonExpiredRequestEvent(Events\onExpiredRequest $timerItem)
     {
         $this->timerItem[] = $timerItem;
+        return $this;
+    }
+
+    /**
+     * Add a reboot event
+     *
+     * @param addonExpiredRebootEvent $rebootItem
+     * @return $this
+     *
+     */
+    public function addonExpiredRebootEvent(Events\onExpiredReboot $rebootItem)
+    {
+        $this->timerItem[] = $rebootItem;
         return $this;
     }
 
