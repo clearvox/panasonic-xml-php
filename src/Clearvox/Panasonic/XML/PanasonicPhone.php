@@ -1,6 +1,7 @@
 <?php
 namespace Clearvox\Panasonic\XML;
 
+use Clearvox\Panasonic\XML\Execute\Execute;
 use Clearvox\Panasonic\XML\Screen\Screen;
 
 class PanasonicPhone
@@ -10,11 +11,24 @@ class PanasonicPhone
      */
     protected $screen = null;
 
+    /**
+     * @var \Clearvox\Panasonic\XML\Screen\Screen
+     */
+    protected $execute = null;
+
     public function addScreen(Screen $screen)
     {
         $this->screen = $screen;
         return $this;
     }
+
+
+    public function addExecute(Execute $execute)
+    {
+        $this->execute = $execute;
+        return $this;
+    }
+
 
     public function generate()
     {
@@ -28,6 +42,11 @@ class PanasonicPhone
         if (!is_null($this->screen)) {
             $ppXML->appendChild($tempDOM->importNode($this->screen->generate(), true));
         }
+
+        if (!is_null($this->execute)) {
+            $ppXML->appendChild($tempDOM->importNode($this->execute->generate(), true));
+        }
+
 
         unset($tempDOM);
         return $ppXML;
