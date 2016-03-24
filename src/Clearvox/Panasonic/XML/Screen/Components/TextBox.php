@@ -92,7 +92,7 @@ class TextBox implements ScreenXMLObjectInterface
      * @param $textAlignment|null string Location of the label (left, right or center)
      *
      */
-    public function __construct($name, $text, $line = 1, $password = false)
+    public function __construct($name, $text, $line = 2, $password = false)
     {
         $this->name = $name;
         $this->text = $text;
